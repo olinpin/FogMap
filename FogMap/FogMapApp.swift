@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct FogMapApp: App {
-    let persistenceController = PersistenceController.shared
+    let dataController = DataController()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }
