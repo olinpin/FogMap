@@ -29,6 +29,7 @@
 		6CA16DEC2C5E32F8000C390B /* PastLocations+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PastLocations+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6CA16DED2C5E32F8000C390B /* PastLocations+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PastLocations+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6CA16DF02C5E57A2000C390B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = FogMap/LocationManager.swift; sourceTree = "<group>"; };
+		6CA16DF22C5E6D94000C390B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 		6CA16DD12C5E3076000C390B /* FogMap */ = {
 			isa = PBXGroup;
 			children = (
+				6CA16DF22C5E6D94000C390B /* Info.plist */,
 				6CA16DE92C5E3181000C390B /* Model */,
 				6CA16DD22C5E3076000C390B /* FogMapApp.swift */,
 				6CA16DEA2C5E320E000C390B /* DataController.swift */,
@@ -303,6 +305,7 @@
 				DEVELOPMENT_TEAM = SSJBLTMP95;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FogMap/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Pls let me use this 🥺";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pls gimme at least this 🥺🥺🥺";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -334,6 +337,7 @@
 				DEVELOPMENT_TEAM = SSJBLTMP95;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FogMap/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Pls let me use this 🥺";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pls gimme at least this 🥺🥺🥺";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

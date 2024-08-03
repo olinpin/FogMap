@@ -6,15 +6,23 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct FogMapApp: App {
-    let dataController = DataController()
+    let dataController: DataController
+    let locationManager: LocationManager
+    
+    init() {
+        self.dataController = DataController()
+        self.locationManager = LocationManager(viewContext: dataController.container.viewContext)
+    }
 
     var body: some Scene {
         WindowGroup {
             MapView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
+                .environmentObject(self.locationManager)
         }
     }
 }

@@ -19,7 +19,6 @@ class DataController: ObservableObject {
     static var preview: DataController {
         let result = DataController(inMemory: true)
         let viewContext = result.container.viewContext
-//        let locations: [PastLocations] = []
         let home = PastLocations(context: viewContext)
         home.latitude = 50.187480
         home.longitude = 15.050138
