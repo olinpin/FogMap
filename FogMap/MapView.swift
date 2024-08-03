@@ -12,7 +12,10 @@ import MapKit
 
 struct MapView: View {
     @State var position: MapCameraPosition = .automatic
-    @State var centerCoord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    @State var centerCoord: CLLocationCoordinate2D = CLLocationCoordinate2D(
+        latitude: 0,
+        longitude: 0
+    )
     
     @State var pointRadius: Double = 3
     @State var pointMaxSize: Double = 100
@@ -20,12 +23,13 @@ struct MapView: View {
     @EnvironmentObject var locationManager: LocationManager
     @Environment(\.managedObjectContext) var moc
     
-    
-    
     var body: some View {
         Map(position: $position) {
             ForEach(locationManager.locations) { location in
-                let coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+                let coordinate = CLLocationCoordinate2D(
+                    latitude: location.latitude,
+                    longitude: location.longitude
+                )
                 MapCircle(center: coordinate, radius: pointRadius)
                     .foregroundStyle(.red.opacity(0.75))
             }
@@ -62,7 +66,7 @@ struct MapView: View {
             }
             .padding([.top, .horizontal])
             .background(.thinMaterial)
-
+            
             
         })
         .mapStyle(.standard(elevation: .realistic))

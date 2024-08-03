@@ -22,6 +22,11 @@ class DataController: ObservableObject {
         let home = PastLocations(context: viewContext)
         home.latitude = 50.187480
         home.longitude = 15.050138
+        home.timestamp = 0
+        let point2 = PastLocations(context: viewContext)
+        point2.latitude = 50.0
+        point2.longitude = 15.050138
+        home.timestamp = 1
         do {
             try viewContext.save()
         } catch {

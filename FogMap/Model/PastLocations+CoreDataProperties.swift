@@ -18,6 +18,8 @@ extension PastLocations {
 
     @NSManaged public var longitude: Double
     @NSManaged public var latitude: Double
+    @NSManaged public var timestamp: Int64
+
 
 }
 

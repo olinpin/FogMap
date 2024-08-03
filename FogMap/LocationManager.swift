@@ -64,6 +64,8 @@ extension LocationManager: CLLocationManagerDelegate {
         let loc = PastLocations(context: self.viewContext)
         loc.latitude = location.coordinate.latitude
         loc.longitude = location.coordinate.longitude
+        let date = Int64(Date().timeIntervalSince1970)
+        loc.timestamp = date
         do {
             try viewContext.save()
             self.locations.append(loc)
