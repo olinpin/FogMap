@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6CA16DD32C5E3076000C390B /* FogMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA16DD22C5E3076000C390B /* FogMapApp.swift */; };
-		6CA16DD52C5E3076000C390B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA16DD42C5E3076000C390B /* ContentView.swift */; };
+		6CA16DD52C5E3076000C390B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA16DD42C5E3076000C390B /* MapView.swift */; };
 		6CA16DD72C5E3078000C390B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CA16DD62C5E3078000C390B /* Assets.xcassets */; };
 		6CA16DDA2C5E3078000C390B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CA16DD92C5E3078000C390B /* Preview Assets.xcassets */; };
 		6CA16DDF2C5E3078000C390B /* FogMap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6CA16DDD2C5E3078000C390B /* FogMap.xcdatamodeld */; };
@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		6CA16DCF2C5E3076000C390B /* FogMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FogMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CA16DD22C5E3076000C390B /* FogMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogMapApp.swift; sourceTree = "<group>"; };
-		6CA16DD42C5E3076000C390B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6CA16DD42C5E3076000C390B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		6CA16DD62C5E3078000C390B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6CA16DD92C5E3078000C390B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6CA16DDE2C5E3078000C390B /* FogMap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FogMap.xcdatamodel; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 				6CA16DE92C5E3181000C390B /* Model */,
 				6CA16DD22C5E3076000C390B /* FogMapApp.swift */,
 				6CA16DEA2C5E320E000C390B /* DataController.swift */,
-				6CA16DD42C5E3076000C390B /* ContentView.swift */,
+				6CA16DD42C5E3076000C390B /* MapView.swift */,
 				6CA16DD62C5E3078000C390B /* Assets.xcassets */,
 				6CA16DD82C5E3078000C390B /* Preview Content */,
 			);
@@ -161,7 +161,7 @@
 				6CA16DEB2C5E320E000C390B /* DataController.swift in Sources */,
 				6CA16DEE2C5E32F8000C390B /* PastLocations+CoreDataClass.swift in Sources */,
 				6CA16DEF2C5E32F8000C390B /* PastLocations+CoreDataProperties.swift in Sources */,
-				6CA16DD52C5E3076000C390B /* ContentView.swift in Sources */,
+				6CA16DD52C5E3076000C390B /* MapView.swift in Sources */,
 				6CA16DD32C5E3076000C390B /* FogMapApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

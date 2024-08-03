@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MapView.swift
 //  FogMap
 //
 //  Created by Oliver Hnát on 03.08.2024.
@@ -10,7 +10,7 @@ import CoreData
 import MapKit
 
 
-struct ContentView: View {
+struct MapView: View {
     @State var locations: [PastLocations] = []
     
     @State var position: MapCameraPosition = .automatic
@@ -81,5 +81,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView().environment(\.managedObjectContext, DataController.preview.container.viewContext)
+    MapView().environment(\.managedObjectContext, DataController.preview.container.viewContext)
 }

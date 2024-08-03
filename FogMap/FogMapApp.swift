@@ -13,7 +13,7 @@ struct FogMapApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MapView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
