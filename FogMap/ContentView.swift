@@ -15,13 +15,18 @@ struct ContentView: View {
     
     @State var position: MapCameraPosition = .automatic
     
+    private var pointRadius: Double = 30
+    
+    @State var centerCoord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    
     @Environment(\.managedObjectContext) var moc
     
     var body: some View {
         Map(position: $position) {
             ForEach(locations) { location in
                 let coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-                Marker("Test", coordinate: coordinate)
+                MapCircle(center: coordinate, radius: pointRadius)
+                    .foregroundStyle(.red.opacity(0.75))
             }
         }
         .safeAreaInset(edge: .bottom, content: {
@@ -31,14 +36,38 @@ struct ContentView: View {
                     getLocations()
                     print(locations)
                 }) {
-                    Text("Get latest locations")
+                    Text("Get")
+                }
+                Spacer()
+                Button(action: {
+                    saveCenterCameraLocation()
+                    print(locations)
+                }) {
+                    Text("Save")
                 }
                 Spacer()
             }
-            .padding(.top)
+            .padding([.top, .horizontal])
             .background(.thinMaterial)
         })
+        .mapStyle(.standard(elevation: .realistic))
+        .onMapCameraChange { mapCameraUpdateContext in
+            self.centerCoord = mapCameraUpdateContext.camera.centerCoordinate
+        }
         
+        
+    }
+    
+    func saveCenterCameraLocation() {
+        let location = PastLocations(context: moc)
+        location.latitude = self.centerCoord.latitude
+        location.longitude = self.centerCoord.longitude
+        do {
+            try moc.save()
+        } catch {
+            print("Something went wrong while saving the location")
+        }
+        getLocations()
     }
     
     func getLocations() {
