@@ -13,20 +13,24 @@ import SwiftUI
 class LocationManager: NSObject, ObservableObject {
     private let manager = CLLocationManager()
     @Published var userLocation: CLLocation?
-    @Published var locations: [PastLocations]
+    @Published var locations: [LocationPoint]
 
     let viewContext: NSManagedObjectContext
     
     init(viewContext: NSManagedObjectContext) {
         self.viewContext = viewContext
         self.locations = []
+        super.init()
         do {
             let request = NSFetchRequest<PastLocations>(entityName: "PastLocations")
-            self.locations = try viewContext.fetch(request)
+            let res = try viewContext.fetch(request)
+            for location in res {
+                let point = LocationPoint(latitude: location.latitude, longitude: location.longitude, timestamp: Int(location.timestamp))
+                self.locations.append(point)
+            }
         } catch {
             print("Something went wrong fetching locations")
         }
-        super.init()
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.distanceFilter = 10
@@ -68,7 +72,8 @@ extension LocationManager: CLLocationManagerDelegate {
         loc.timestamp = date
         do {
             try viewContext.save()
-            self.locations.append(loc)
+            let point = LocationPoint(latitude: loc.latitude, longitude: loc.longitude, timestamp: Int(loc.timestamp))
+            self.locations.append(point)
             print("Added new location")
         } catch {
             print("SOMETHING WENT WRONG")

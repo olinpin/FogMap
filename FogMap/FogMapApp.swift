@@ -15,6 +15,7 @@ struct FogMapApp: App {
     
     init() {
         self.dataController = DataController()
+//        self.dataController = DataController.preview
         self.locationManager = LocationManager(viewContext: dataController.container.viewContext)
     }
 
