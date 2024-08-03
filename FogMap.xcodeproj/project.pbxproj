@@ -15,6 +15,7 @@
 		6CA16DEB2C5E320E000C390B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA16DEA2C5E320E000C390B /* DataController.swift */; };
 		6CA16DEE2C5E32F8000C390B /* PastLocations+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA16DEC2C5E32F8000C390B /* PastLocations+CoreDataClass.swift */; };
 		6CA16DEF2C5E32F8000C390B /* PastLocations+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA16DED2C5E32F8000C390B /* PastLocations+CoreDataProperties.swift */; };
+		6CA16DF12C5E57A2000C390B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA16DF02C5E57A2000C390B /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		6CA16DEA2C5E320E000C390B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = Model/DataController.swift; sourceTree = "<group>"; };
 		6CA16DEC2C5E32F8000C390B /* PastLocations+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PastLocations+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6CA16DED2C5E32F8000C390B /* PastLocations+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PastLocations+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6CA16DF02C5E57A2000C390B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = FogMap/LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 		6CA16DC62C5E3076000C390B = {
 			isa = PBXGroup;
 			children = (
+				6CA16DF02C5E57A2000C390B /* LocationManager.swift */,
 				6CA16DD12C5E3076000C390B /* FogMap */,
 				6CA16DD02C5E3076000C390B /* Products */,
 			);
@@ -160,6 +163,7 @@
 				6CA16DDF2C5E3078000C390B /* FogMap.xcdatamodeld in Sources */,
 				6CA16DEB2C5E320E000C390B /* DataController.swift in Sources */,
 				6CA16DEE2C5E32F8000C390B /* PastLocations+CoreDataClass.swift in Sources */,
+				6CA16DF12C5E57A2000C390B /* LocationManager.swift in Sources */,
 				6CA16DEF2C5E32F8000C390B /* PastLocations+CoreDataProperties.swift in Sources */,
 				6CA16DD52C5E3076000C390B /* MapView.swift in Sources */,
 				6CA16DD32C5E3076000C390B /* FogMapApp.swift in Sources */,
@@ -299,6 +303,8 @@
 				DEVELOPMENT_TEAM = SSJBLTMP95;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Pls let me use this 🥺";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pls gimme at least this 🥺🥺🥺";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -328,6 +334,8 @@
 				DEVELOPMENT_TEAM = SSJBLTMP95;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Pls let me use this 🥺";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pls gimme at least this 🥺🥺🥺";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

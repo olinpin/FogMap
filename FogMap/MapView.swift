@@ -17,6 +17,8 @@ struct MapView: View {
     
     private var pointRadius: Double = 30
     
+    var locationManager = LocationManager.shared
+    
     @State var centerCoord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     
     @Environment(\.managedObjectContext) var moc
@@ -40,6 +42,12 @@ struct MapView: View {
                 }
                 Spacer()
                 Button(action: {
+                    locationManager.requestLocation()
+                }) {
+                    Text("Location permission")
+                }
+                Spacer()
+                Button(action: {
                     saveCenterCameraLocation()
                     print(locations)
                 }) {
@@ -53,6 +61,12 @@ struct MapView: View {
         .mapStyle(.standard(elevation: .realistic))
         .onMapCameraChange { mapCameraUpdateContext in
             self.centerCoord = mapCameraUpdateContext.camera.centerCoordinate
+        }
+        .mapControls {
+            MapUserLocationButton()
+            MapCompass()
+            MapScaleView()
+            MapPitchToggle()
         }
         
         
