@@ -14,7 +14,8 @@ struct MapView: View {
     @State var position: MapCameraPosition = .automatic
     @State var centerCoord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     
-    var pointRadius: Double = 3
+    @State var pointRadius: Double = 3
+    @State var pointMaxSize: Double = 100
     
     @EnvironmentObject var locationManager: LocationManager
     @Environment(\.managedObjectContext) var moc
@@ -30,13 +31,38 @@ struct MapView: View {
             }
         }
         .safeAreaInset(edge: .bottom, content: {
-            HStack {
-                Spacer()
-                Text("Current number of points: \(locationManager.locations.count)")
-                Spacer()
+            VStack {
+                HStack {
+                    Spacer()
+                    Text("Current number of points: \(locationManager.locations.count)")
+                    Spacer()
+                }
+                HStack {
+                    Button(action: {
+                        pointMaxSize *= 10
+                    }) {
+                        Image(systemName: "plus.circle.fill")
+                    }
+                    Button(action: {
+                        pointMaxSize /= 10
+                    }) {
+                        Image(systemName: "minus.circle.fill")
+                    }
+                }
+                .font(.title)
+                .padding(.top, 10)
+                Slider(value: self.$pointRadius, in: 0...pointMaxSize){
+                    Text("Something")
+                } minimumValueLabel: {
+                    Text("0")
+                } maximumValueLabel: {
+                    Text("\(Int(pointMaxSize))")
+                }
+                Text("Point size: \(String(format: "%.2f", pointRadius))m")
             }
             .padding([.top, .horizontal])
             .background(.thinMaterial)
+
             
         })
         .mapStyle(.standard(elevation: .realistic))
