@@ -93,7 +93,6 @@ struct customMapView: View {
                 MapCircle(center: coordinate, radius: pointRadius)
                     .foregroundStyle(.red.opacity(0.75))
             }
-            
         }
         .safeAreaInset(edge: .bottom, content: {
             VStack {

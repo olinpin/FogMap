@@ -2,7 +2,7 @@
 //  PastLocations+CoreDataProperties.swift
 //  FogMap
 //
-//  Created by Oliver Hnát on 03.08.2024.
+//  Created by Oliver Hnát on 04.08.2024.
 //
 //
 
@@ -16,10 +16,9 @@ extension PastLocations {
         return NSFetchRequest<PastLocations>(entityName: "PastLocations")
     }
 
-    @NSManaged public var longitude: Double
     @NSManaged public var latitude: Double
+    @NSManaged public var longitude: Double
     @NSManaged public var timestamp: Int64
-
 
 }
 

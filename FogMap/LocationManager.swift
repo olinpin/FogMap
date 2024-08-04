@@ -74,7 +74,7 @@ extension LocationManager: CLLocationManagerDelegate {
         let date = Int64(Date().timeIntervalSince1970)
         let point = LocationPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, timestamp: Int(date))
         for madePoint in self.locations {
-            if point.findDistanceFrom(madePoint) < 100 {
+            if point.findDistanceFrom(madePoint) < 50 {
                 return
             }
         }
@@ -87,6 +87,7 @@ extension LocationManager: CLLocationManagerDelegate {
             self.locations.append(point)
             print("Added new location")
         } catch {
+            print(error)
             print("SOMETHING WENT WRONG")
         }
     }

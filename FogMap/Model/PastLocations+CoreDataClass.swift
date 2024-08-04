@@ -2,7 +2,7 @@
 //  PastLocations+CoreDataClass.swift
 //  FogMap
 //
-//  Created by Oliver Hnát on 03.08.2024.
+//  Created by Oliver Hnát on 04.08.2024.
 //
 //
 
