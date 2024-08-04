@@ -14,6 +14,8 @@ class LocationManager: NSObject, ObservableObject {
     private let manager = CLLocationManager()
     @Published var userLocation: CLLocation?
     @Published var locations: [LocationPoint]
+    
+    static var shared = LocationManager(viewContext: DataController.shared.viewContext)
 
     let viewContext: NSManagedObjectContext
     
@@ -37,9 +39,13 @@ class LocationManager: NSObject, ObservableObject {
         manager.allowsBackgroundLocationUpdates = true
         manager.startUpdatingLocation()
     }
-
     
     func requestLocation() {
+        manager.requestLocation()
+    }
+
+    
+    func requestAuthorization() {
         manager.requestAlwaysAuthorization()
     }
 }
@@ -83,5 +89,9 @@ extension LocationManager: CLLocationManagerDelegate {
         } catch {
             print("SOMETHING WENT WRONG")
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+        print(error)
     }
 }

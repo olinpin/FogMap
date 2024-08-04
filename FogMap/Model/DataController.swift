@@ -16,6 +16,8 @@ class DataController: ObservableObject {
         container.viewContext
     }
     
+    static var shared = DataController()
+    
     static var preview: DataController {
         let result = DataController(inMemory: true)
         let viewContext = result.container.viewContext
