@@ -32,8 +32,8 @@ class LocationManager: NSObject, ObservableObject {
             print("Something went wrong fetching locations")
         }
         manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.distanceFilter = 10
+        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        manager.distanceFilter = 100
         manager.allowsBackgroundLocationUpdates = true
         manager.startUpdatingLocation()
     }
@@ -65,14 +65,19 @@ extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         self.userLocation = location
-        let loc = PastLocations(context: self.viewContext)
-        loc.latitude = location.coordinate.latitude
-        loc.longitude = location.coordinate.longitude
         let date = Int64(Date().timeIntervalSince1970)
+        let point = LocationPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, timestamp: Int(date))
+        for madePoint in self.locations {
+            if point.findDistanceFrom(madePoint) < 100 {
+                return
+            }
+        }
+        let loc = PastLocations(context: self.viewContext)
+        loc.latitude = point.latitude
+        loc.longitude = point.longitude
         loc.timestamp = date
         do {
             try viewContext.save()
-            let point = LocationPoint(latitude: loc.latitude, longitude: loc.longitude, timestamp: Int(loc.timestamp))
             self.locations.append(point)
             print("Added new location")
         } catch {

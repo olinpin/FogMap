@@ -26,4 +26,8 @@ class LocationPoint: Identifiable {
         let c2 = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         return c1.distance(from: c2)
     }
+    
+    func getCLLocationCoordinate2D() -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
+    }
 }
