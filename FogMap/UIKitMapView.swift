@@ -60,8 +60,11 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
     }
     
     private func addCircles() {
-        self.circles = []
+        var coords = circles.map({$0.coordinate})
         for coordinate in LocationManager.shared.locations.map({CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)}) {
+            if coords.contains(where: {coordinate.latitude == $0.latitude && coordinate.longitude == $0.longitude}) {
+                continue
+            }
             let circle = MKCircle(center: coordinate, radius: 1000)
             self.circles.append(circle)
             mapView.addOverlay(circle)
@@ -95,8 +98,10 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
         for circle in circles {
             let circlePoint = mapView.convert(circle.coordinate, toPointTo: mapView)
             let radiusInPoints = radiusInPointsForCircle(circle)
+            if circlePoint.y < -radiusInPoints/2 || circlePoint.x < -radiusInPoints / 2 {
+                continue
+            }
             let circlePath = UIBezierPath(arcCenter: circlePoint, radius: radiusInPoints, startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: true)
-//            path.append(circlePath)
             combinedPath = combinedPath.union(circlePath.cgPath) as! CGMutablePath
         }
         path.append(UIBezierPath(cgPath: combinedPath))
