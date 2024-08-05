@@ -39,6 +39,19 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
         createMaskView()
     }
     
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        var initialLocation = LocationManager.shared.locations.map({$0.getCLLocationCoordinate2D()}).last ?? nil
+        if initialLocation == nil {
+            initialLocation = LocationManager.shared.userLocation?.coordinate
+        }
+        let defaultLocation = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+        let region = MKCoordinateRegion(center: initialLocation ?? defaultLocation, latitudinalMeters: 10000, longitudinalMeters: 10000)
+        mapView.setRegion(region, animated: true)
+        if initialLocation == nil {
+            mapView.setUserTrackingMode(.follow, animated:true)
+        }
+    }
+    
     private func setupUI() {
         view.addSubview(mapView)
         mapView.delegate = self
@@ -49,12 +62,6 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        
-        // TODO: This should be user's current location
-//        let initialLocation = coordinates[0]
-        let initialLocation = LocationManager.shared.locations.map({$0.getCLLocationCoordinate2D()}).last ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
-        let region = MKCoordinateRegion(center: initialLocation, latitudinalMeters: 10000, longitudinalMeters: 10000)
-        mapView.setRegion(region, animated: true)
         mapView.showsUserLocation = true
         mapView.showsUserTrackingButton = true
     }
