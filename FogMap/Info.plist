@@ -4,6 +4,8 @@
 <dict>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>ITSEncryptionExportComplianceCode</key>
+	<string>NO</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
