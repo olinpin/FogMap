@@ -9,13 +9,12 @@ import SwiftUI
 
 struct MainView: View {
     
-    @State var pointRadius: Double = 100
     var body: some View {
         UIMapView()
             .ignoresSafeArea()
 //            .safeAreaInset(edge: .bottom, content: {
 //                VStack {
-////                    Text("HER")
+//                    Text("HER")
 //                }
 //                .padding([.top, .horizontal])
 //            })

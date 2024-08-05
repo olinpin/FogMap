@@ -26,6 +26,7 @@
 		6C79781C2C601874008C4161 /* PastLocations+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PastLocations+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6C79781D2C601874008C4161 /* PastLocations+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PastLocations+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6C7978252C601A8F008C4161 /* FogMap2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FogMap2.xcdatamodel; sourceTree = "<group>"; };
+		6C90A2D62C610997004000EC /* FogMap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FogMap.entitlements; sourceTree = "<group>"; };
 		6C938FB82C60FF2200F9C139 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		6CA16DCF2C5E3076000C390B /* FogMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FogMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CA16DD22C5E3076000C390B /* FogMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogMapApp.swift; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 		6CA16DD12C5E3076000C390B /* FogMap */ = {
 			isa = PBXGroup;
 			children = (
+				6C90A2D62C610997004000EC /* FogMap.entitlements */,
 				6CA16DF02C5E57A2000C390B /* LocationManager.swift */,
 				6CA16DF22C5E6D94000C390B /* Info.plist */,
 				6CA16DE92C5E3181000C390B /* Model */,
@@ -312,6 +314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FogMap/FogMap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FogMap/Preview Content\"";
@@ -319,8 +322,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FogMap/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Pls let me use this 🥺";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pls gimme at least this 🥺🥺🥺";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location information to keep your explored map up to date.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location information to keep your explored map up to date.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -344,6 +347,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FogMap/FogMap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FogMap/Preview Content\"";
@@ -351,8 +355,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FogMap/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Pls let me use this 🥺";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pls gimme at least this 🥺🥺🥺";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location information to keep your explored map up to date.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location information to keep your explored map up to date.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
