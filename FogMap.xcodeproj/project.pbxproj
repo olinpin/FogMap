@@ -24,7 +24,6 @@
 		6C79781A2C5FB658008C4161 /* UIKitMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitMapView.swift; sourceTree = "<group>"; };
 		6C79781C2C601874008C4161 /* PastLocations+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PastLocations+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6C79781D2C601874008C4161 /* PastLocations+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PastLocations+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		6C7978202C6018E7008C4161 /* FogMap0.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FogMap0.2.xcdatamodel; sourceTree = "<group>"; };
 		6C7978252C601A8F008C4161 /* FogMap2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FogMap2.xcdatamodel; sourceTree = "<group>"; };
 		6CA16DCF2C5E3076000C390B /* FogMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FogMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CA16DD22C5E3076000C390B /* FogMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogMapApp.swift; sourceTree = "<group>"; };
@@ -396,7 +395,6 @@
 			isa = XCVersionGroup;
 			children = (
 				6C7978252C601A8F008C4161 /* FogMap2.xcdatamodel */,
-				6C7978202C6018E7008C4161 /* FogMap0.2.xcdatamodel */,
 				6CA16DDE2C5E3078000C390B /* FogMap.xcdatamodel */,
 			);
 			currentVersion = 6C7978252C601A8F008C4161 /* FogMap2.xcdatamodel */;

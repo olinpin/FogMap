@@ -52,7 +52,7 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
         
         // TODO: This should be user's current location
 //        let initialLocation = coordinates[0]
-        let initialLocation = LocationManager.shared.locations.map({CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)}).first ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
+        let initialLocation = LocationManager.shared.locations.map({$0.getCLLocationCoordinate2D()}).last ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
         let region = MKCoordinateRegion(center: initialLocation, latitudinalMeters: 10000, longitudinalMeters: 10000)
         mapView.setRegion(region, animated: true)
         mapView.showsUserLocation = true
@@ -60,8 +60,8 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
     }
     
     private func addCircles() {
-        var coords = circles.map({$0.coordinate})
-        for coordinate in LocationManager.shared.locations.map({CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)}) {
+        let coords = circles.map({$0.coordinate})
+        for coordinate in LocationManager.shared.locations.map({$0.getCLLocationCoordinate2D()}) {
             if coords.contains(where: {coordinate.latitude == $0.latitude && coordinate.longitude == $0.longitude}) {
                 continue
             }
