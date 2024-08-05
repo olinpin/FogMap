@@ -281,6 +281,7 @@
       "subtype" : "44mm"
     },
     {
+      "filename" : "100 1.png",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -288,6 +289,7 @@
       "subtype" : "45mm"
     },
     {
+      "filename" : "100 2.png",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -319,6 +321,7 @@
       "subtype" : "44mm"
     },
     {
+      "filename" : "102.png",
       "idiom" : "watch",
       "role" : "quickLook",
       "scale" : "2x",
@@ -326,6 +329,7 @@
       "subtype" : "45mm"
     },
     {
+      "filename" : "102 1.png",
       "idiom" : "watch",
       "role" : "quickLook",
       "scale" : "2x",
