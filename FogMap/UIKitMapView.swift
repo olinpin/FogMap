@@ -75,7 +75,7 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
         maskView?.removeFromSuperview()
         
         let newMaskView = UIView(frame: mapView.bounds)
-        newMaskView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        newMaskView.backgroundColor = UIColor.white
         newMaskView.isUserInteractionEnabled = false
         
         mapView.addSubview(newMaskView)
@@ -137,20 +137,27 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         maskView?.frame = mapView.bounds
+        updateMaskContinuously()
+    }
+    
+    private func updateMaskContinuously() {
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
         updateMask()
+        CATransaction.commit()
     }
     
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-        maskView?.isHidden = true
+//        maskView?.isHidden = true
     }
     
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
-        updateMask()
-        maskView?.isHidden = false
+        updateMaskContinuously()
+//        maskView?.isHidden = false
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        updateMask()
+        updateMaskContinuously()
         maskView?.isHidden = false
     }
 }
