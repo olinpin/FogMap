@@ -21,8 +21,7 @@ struct FogMapApp: App {
 
     var body: some Scene {
         WindowGroup {
-            UIMapView()
-                .ignoresSafeArea()
+            MainView()
 //            MapView()
 //                .environment(\.managedObjectContext, dataController.container.viewContext)
 //                .environmentObject(self.locationManager)

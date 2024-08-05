@@ -10,6 +10,7 @@
 		6C79781B2C5FB658008C4161 /* UIKitMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79781A2C5FB658008C4161 /* UIKitMapView.swift */; };
 		6C79781E2C601874008C4161 /* PastLocations+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79781C2C601874008C4161 /* PastLocations+CoreDataClass.swift */; };
 		6C79781F2C601874008C4161 /* PastLocations+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79781D2C601874008C4161 /* PastLocations+CoreDataProperties.swift */; };
+		6C938FB92C60FF2200F9C139 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C938FB82C60FF2200F9C139 /* MainView.swift */; };
 		6CA16DD32C5E3076000C390B /* FogMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA16DD22C5E3076000C390B /* FogMapApp.swift */; };
 		6CA16DD52C5E3076000C390B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA16DD42C5E3076000C390B /* MapView.swift */; };
 		6CA16DD72C5E3078000C390B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CA16DD62C5E3078000C390B /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		6C79781C2C601874008C4161 /* PastLocations+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PastLocations+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6C79781D2C601874008C4161 /* PastLocations+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PastLocations+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6C7978252C601A8F008C4161 /* FogMap2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FogMap2.xcdatamodel; sourceTree = "<group>"; };
+		6C938FB82C60FF2200F9C139 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		6CA16DCF2C5E3076000C390B /* FogMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FogMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CA16DD22C5E3076000C390B /* FogMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogMapApp.swift; sourceTree = "<group>"; };
 		6CA16DD42C5E3076000C390B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -32,7 +34,7 @@
 		6CA16DD92C5E3078000C390B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6CA16DDE2C5E3078000C390B /* FogMap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FogMap.xcdatamodel; sourceTree = "<group>"; };
 		6CA16DEA2C5E320E000C390B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = Model/DataController.swift; sourceTree = "<group>"; };
-		6CA16DF02C5E57A2000C390B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = FogMap/LocationManager.swift; sourceTree = "<group>"; };
+		6CA16DF02C5E57A2000C390B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6CA16DF22C5E6D94000C390B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6CA16DF32C5ECE96000C390B /* LocationPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,7 +53,6 @@
 		6CA16DC62C5E3076000C390B = {
 			isa = PBXGroup;
 			children = (
-				6CA16DF02C5E57A2000C390B /* LocationManager.swift */,
 				6CA16DD12C5E3076000C390B /* FogMap */,
 				6CA16DD02C5E3076000C390B /* Products */,
 			);
@@ -68,12 +69,14 @@
 		6CA16DD12C5E3076000C390B /* FogMap */ = {
 			isa = PBXGroup;
 			children = (
+				6CA16DF02C5E57A2000C390B /* LocationManager.swift */,
 				6CA16DF22C5E6D94000C390B /* Info.plist */,
 				6CA16DE92C5E3181000C390B /* Model */,
 				6CA16DD22C5E3076000C390B /* FogMapApp.swift */,
 				6CA16DEA2C5E320E000C390B /* DataController.swift */,
 				6CA16DD42C5E3076000C390B /* MapView.swift */,
 				6C79781A2C5FB658008C4161 /* UIKitMapView.swift */,
+				6C938FB82C60FF2200F9C139 /* MainView.swift */,
 				6CA16DF32C5ECE96000C390B /* LocationPoint.swift */,
 				6CA16DD62C5E3078000C390B /* Assets.xcassets */,
 				6CA16DD82C5E3078000C390B /* Preview Content */,
@@ -172,6 +175,7 @@
 				6CA16DDF2C5E3078000C390B /* FogMap.xcdatamodeld in Sources */,
 				6CA16DF42C5ECE96000C390B /* LocationPoint.swift in Sources */,
 				6C79781E2C601874008C4161 /* PastLocations+CoreDataClass.swift in Sources */,
+				6C938FB92C60FF2200F9C139 /* MainView.swift in Sources */,
 				6C79781F2C601874008C4161 /* PastLocations+CoreDataProperties.swift in Sources */,
 				6CA16DEB2C5E320E000C390B /* DataController.swift in Sources */,
 				6CA16DF12C5E57A2000C390B /* LocationManager.swift in Sources */,
