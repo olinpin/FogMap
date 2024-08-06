@@ -39,11 +39,11 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        setupUI()
+
         LocationManager.shared.requestAuthorization()
         LocationManager.shared.requestLocation()
 
-        setupUI()
         addCircles()
         createMaskView()
         observeLocationChanges()

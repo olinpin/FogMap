@@ -23,6 +23,15 @@ class LocationManager: NSObject, ObservableObject {
         self.viewContext = viewContext
         self.locations = []
         super.init()
+        requestFromCoreData()
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        manager.distanceFilter = 100
+        manager.allowsBackgroundLocationUpdates = true
+        manager.startUpdatingLocation()
+    }
+    
+    func requestFromCoreData() {
         do {
             let request = NSFetchRequest<PastLocations>(entityName: "PastLocations")
             let res = try viewContext.fetch(request)
@@ -33,11 +42,6 @@ class LocationManager: NSObject, ObservableObject {
         } catch {
             print("Something went wrong fetching locations")
         }
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        manager.distanceFilter = 100
-        manager.allowsBackgroundLocationUpdates = true
-        manager.startUpdatingLocation()
     }
     
     func requestLocation() {
@@ -90,6 +94,7 @@ extension LocationManager: CLLocationManagerDelegate {
             print(error)
             print("SOMETHING WENT WRONG")
         }
+        requestFromCoreData()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {

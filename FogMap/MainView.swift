@@ -14,7 +14,7 @@ struct MainView: View {
             .ignoresSafeArea()
 //            .safeAreaInset(edge: .bottom, content: {
 //                VStack {
-//                    Text("\(LocationManager.shared.locations.map({$0.getCLLocationCoordinate2D()}))")
+//                    Text("\(LocationManager.shared.locations.count)")
 //                }
 //                .padding([.top, .horizontal])
 //            })

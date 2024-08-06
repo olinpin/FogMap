@@ -7,10 +7,11 @@
 
 import Foundation
 import CoreData
+import CloudKit
 
 class DataController: ObservableObject {
     
-    let container = NSPersistentContainer(name: "FogMap")
+    let container = NSPersistentCloudKitContainer(name: "FogMap")
     
     var viewContext: NSManagedObjectContext {
         container.viewContext
@@ -46,9 +47,21 @@ class DataController: ObservableObject {
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
-        container.loadPersistentStores { description, error in
-            if let error = error {
-                print("Core data failed to load: \(error.localizedDescription)")
+        
+        let storeDescription = container.persistentStoreDescriptions.first
+        
+        let cloudKitOptions = NSPersistentCloudKitContainerOptions(containerIdentifier: "iCloud.com.oliverhnat.FogMap")
+        
+        storeDescription?.cloudKitContainerOptions = cloudKitOptions
+        storeDescription?.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
+
+        
+        container.viewContext.automaticallyMergesChangesFromParent = true
+        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        
+        container.loadPersistentStores { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         }
     }
