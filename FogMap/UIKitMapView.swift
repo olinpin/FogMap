@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import SwiftUI
+import Combine
 
 class UIKitMapView: UIViewController, MKMapViewDelegate {
     
@@ -17,10 +18,23 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
         map.translatesAutoresizingMaskIntoConstraints = false
         return map
     }()
+    private var locationsCancellable: AnyCancellable?
+
     
     private var initialLocationSet = false
     private var maskView: UIView?
     private var circles: [MKCircle] = []
+
+    private func observeLocationChanges() {
+        locationsCancellable = LocationManager.shared.$locations
+            .sink { [weak self] _ in
+                self?.addCircles()
+                self?.updateMask()
+            }
+    }
+    deinit {
+        locationsCancellable?.cancel()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +46,7 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
         setupUI()
         addCircles()
         createMaskView()
+        observeLocationChanges()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -156,13 +171,8 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
         CATransaction.commit()
     }
     
-    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-//        maskView?.isHidden = true
-    }
-    
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
         updateMaskContinuously()
-//        maskView?.isHidden = false
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
