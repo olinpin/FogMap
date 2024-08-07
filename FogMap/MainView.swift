@@ -26,6 +26,12 @@ struct MainView: View {
                             Image(systemName: "star")
                             Text("Anki")
                         }
+                    StatsView()
+                        .tag("Stats")
+                        .tabItem {
+                            Text("Statistics")
+                            Image(systemName: "chart.bar")
+                        }
                     SettingsView()
                         .tag("Settings")
                         .tabItem {
