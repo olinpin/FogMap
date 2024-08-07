@@ -9,9 +9,34 @@ import SwiftUI
 
 struct MainView: View {
     
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.systemGray5
+    }
+    
+    @State var selectedTab = "Map"
+
     var body: some View {
-        UIMapView()
-            .ignoresSafeArea()
+        ZStack {
+            TabView(selection: $selectedTab) {
+                Group {
+                    UIMapView()
+                        .ignoresSafeArea(edges: .top)
+                        .tag("Map")
+                        .tabItem {
+                            Image(systemName: "star")
+                            Text("Anki")
+                        }
+                    SettingsView()
+                        .tag("Settings")
+                        .tabItem {
+                            Image(systemName: "gear")
+                                .padding()
+                            Text("Settings")
+                        }
+                }
+                .ignoresSafeArea(edges: .bottom)
+            }
+        }
 //            .safeAreaInset(edge: .bottom, content: {
 //                VStack {
 //                    Text("\(LocationManager.shared.locations.count)")

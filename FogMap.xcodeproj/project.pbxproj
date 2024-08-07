@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C3B4C112C6389AA000DDE78 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3B4C102C6389AA000DDE78 /* SettingsView.swift */; };
 		6C79781B2C5FB658008C4161 /* UIKitMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79781A2C5FB658008C4161 /* UIKitMapView.swift */; };
 		6C79781E2C601874008C4161 /* PastLocations+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79781C2C601874008C4161 /* PastLocations+CoreDataClass.swift */; };
 		6C79781F2C601874008C4161 /* PastLocations+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79781D2C601874008C4161 /* PastLocations+CoreDataProperties.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C3B4C102C6389AA000DDE78 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		6C79781A2C5FB658008C4161 /* UIKitMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitMapView.swift; sourceTree = "<group>"; };
 		6C79781C2C601874008C4161 /* PastLocations+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PastLocations+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6C79781D2C601874008C4161 /* PastLocations+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PastLocations+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				6CA16DD42C5E3076000C390B /* MapView.swift */,
 				6C79781A2C5FB658008C4161 /* UIKitMapView.swift */,
 				6C938FB82C60FF2200F9C139 /* MainView.swift */,
+				6C3B4C102C6389AA000DDE78 /* SettingsView.swift */,
 				6CA16DF32C5ECE96000C390B /* LocationPoint.swift */,
 				6CA16DD62C5E3078000C390B /* Assets.xcassets */,
 				6CA16DD82C5E3078000C390B /* Preview Content */,
@@ -188,6 +191,7 @@
 				6C79781B2C5FB658008C4161 /* UIKitMapView.swift in Sources */,
 				6CA16DD52C5E3076000C390B /* MapView.swift in Sources */,
 				6CA16DD32C5E3076000C390B /* FogMapApp.swift in Sources */,
+				6C3B4C112C6389AA000DDE78 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
