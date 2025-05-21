@@ -99,7 +99,7 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
         maskView?.removeFromSuperview()
         
         let newMaskView = UIView(frame: mapView.bounds)
-        newMaskView.backgroundColor = UIColor.white
+        newMaskView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         newMaskView.isUserInteractionEnabled = false
         
         mapView.addSubview(newMaskView)

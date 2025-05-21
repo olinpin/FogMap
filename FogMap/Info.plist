@@ -6,11 +6,17 @@
 	<false/>
 	<key>ITSEncryptionExportComplianceCode</key>
 	<string>NO</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>fetch</string>
-		<string>location</string>
-		<string>remote-notification</string>
-	</array>
+        <key>UIBackgroundModes</key>
+        <array>
+                <string>fetch</string>
+                <string>location</string>
+                <string>remote-notification</string>
+        </array>
+        <key>NSLocationWhenInUseUsageDescription</key>
+        <string>This app needs your location to reveal the map.</string>
+        <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+        <string>This app needs your location to reveal the map even in the background.</string>
+        <key>NSLocationAlwaysUsageDescription</key>
+        <string>This app needs your location to reveal the map even in the background.</string>
 </dict>
 </plist>

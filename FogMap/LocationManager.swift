@@ -35,9 +35,10 @@ class LocationManager: NSObject, ObservableObject {
         do {
             let request = NSFetchRequest<PastLocations>(entityName: "PastLocations")
             let res = try viewContext.fetch(request)
-            for location in res {
-                let point = LocationPoint(latitude: location.latitude, longitude: location.longitude, timestamp: Int(location.timestamp))
-                self.locations.append(point)
+            self.locations = res.map {
+                LocationPoint(latitude: $0.latitude,
+                              longitude: $0.longitude,
+                              timestamp: Int($0.timestamp))
             }
         } catch {
             print("Something went wrong fetching locations")
@@ -72,8 +73,8 @@ extension LocationManager: CLLocationManagerDelegate {
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations newLocations: [CLLocation]) {
+        guard let location = newLocations.last else { return }
         self.userLocation = location
         let date = Int64(Date().timeIntervalSince1970)
         let point = LocationPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, timestamp: Int(date))
@@ -94,7 +95,6 @@ extension LocationManager: CLLocationManagerDelegate {
             print(error)
             print("SOMETHING WENT WRONG")
         }
-        requestFromCoreData()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {

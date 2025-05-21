@@ -10,21 +10,19 @@ import CoreData
 
 @main
 struct FogMapApp: App {
-//    let dataController: DataController
-//    let locationManager: LocationManager
-    
+    let dataController: DataController
+    let locationManager: LocationManager
+
     init() {
-//        self.dataController = DataController()
-//        self.dataController = DataController.preview
-//        self.locationManager = LocationManager(viewContext: dataController.container.viewContext)
+        self.dataController = DataController()
+        self.locationManager = LocationManager(viewContext: dataController.container.viewContext)
     }
 
     var body: some Scene {
         WindowGroup {
             MainView()
-//            MapView()
-//                .environment(\.managedObjectContext, dataController.container.viewContext)
-//                .environmentObject(self.locationManager)
+                .environment(\.managedObjectContext, dataController.container.viewContext)
+                .environmentObject(locationManager)
         }
     }
 }
