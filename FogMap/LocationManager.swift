@@ -28,7 +28,12 @@ class LocationManager: NSObject, ObservableObject {
         manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         manager.distanceFilter = 100
         manager.allowsBackgroundLocationUpdates = true
+        manager.pausesLocationUpdatesAutomatically = false
         manager.startUpdatingLocation()
+        // Monitor significant changes so updates continue even when the app
+        // is terminated. The system relaunches the app in the background when
+        // a significant change occurs.
+        manager.startMonitoringSignificantLocationChanges()
     }
     
     func requestFromCoreData() {
