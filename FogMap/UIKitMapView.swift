@@ -19,6 +19,7 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
         return map
     }()
     private var locationsCancellable: AnyCancellable?
+    private var userLocationCancellable: AnyCancellable?
 
     
     private var initialLocationSet = false
@@ -32,8 +33,27 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
                 self?.updateMask()
             }
     }
+
+    private func observeUserLocation() {
+        userLocationCancellable = LocationManager.shared.$userLocation
+            .compactMap { $0 }
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] location in
+                guard let self = self else { return }
+                if !self.initialLocationSet {
+                    let region = MKCoordinateRegion(
+                        center: location.coordinate,
+                        latitudinalMeters: 10000,
+                        longitudinalMeters: 10000)
+                    self.mapView.setRegion(region, animated: true)
+                    self.mapView.setUserTrackingMode(.follow, animated: true)
+                    self.initialLocationSet = true
+                }
+            }
+    }
     deinit {
         locationsCancellable?.cancel()
+        userLocationCancellable?.cancel()
     }
     
     override func viewDidLoad() {
@@ -47,12 +67,12 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
         addCircles()
         createMaskView()
         observeLocationChanges()
+        observeUserLocation()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if !initialLocationSet {
             setInitialLocation()
-            initialLocationSet = true
         }
     }
     
@@ -117,7 +137,6 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
         maskLayer.fillRule = .evenOdd
         
         let path = UIBezierPath(rect: mapView.bounds)
-        var combinedPath = CGMutablePath()
         
         for circle in circles {
             let circlePoint = mapView.convert(circle.coordinate, toPointTo: mapView)
@@ -126,10 +145,9 @@ class UIKitMapView: UIViewController, MKMapViewDelegate {
                 continue
             }
             let circlePath = UIBezierPath(arcCenter: circlePoint, radius: radiusInPoints, startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: true)
-            combinedPath = combinedPath.union(circlePath.cgPath) as! CGMutablePath
+            path.append(circlePath)
         }
-        path.append(UIBezierPath(cgPath: combinedPath))
-        
+
         maskLayer.path = path.cgPath
         maskView.layer.mask = maskLayer
     }
