@@ -7,10 +7,16 @@
 	<key>ITSEncryptionExportComplianceCode</key>
 	<string>NO</string>
 	<key>UIBackgroundModes</key>
-	<array>
-		<string>fetch</string>
-		<string>location</string>
-		<string>remote-notification</string>
-	</array>
+  <array>
+          <string>fetch</string>
+          <string>location</string>
+          <string>remote-notification</string>
+  </array>
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>We use your location to visualize visited areas.</string>
+  <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+  <string>We track your location even in the background to update visited areas.</string>
+  <key>NSLocationAlwaysUsageDescription</key>
+  <string>We track your location even in the background to update visited areas.</string>
 </dict>
 </plist>
