@@ -32,6 +32,12 @@ struct MainView: View {
                             Text("Statistics")
                             Image(systemName: "chart.bar")
                         }
+                    ScreenTimeView()
+                        .tag("ScreenTime")
+                        .tabItem {
+                            Image(systemName: "clock")
+                            Text("Screen Time")
+                        }
                     SettingsView()
                         .tag("Settings")
                         .tabItem {
